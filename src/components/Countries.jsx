@@ -35,7 +35,7 @@ const Countries = ({ searchTerm, selectedRegion }) => {
   });
 
   return (
-    <section className="px-6 py-12 max-w-7xl mx-auto">
+    <section className="px-6 py-12 max-w-7xl mx-auto bg-white dark:bg-slate-950">
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-16">
         {filteredCountries.map((country) => {
           const {
@@ -52,7 +52,7 @@ const Countries = ({ searchTerm, selectedRegion }) => {
               key={cca3}
               className="bg-white dark:bg-slate-700 rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1"
             >
-              <div className="w-full h-40 overflow-hidden">
+              <div className="w-full h-40 overflow-hidden bg-gray-200 dark:bg-slate-600">
                 <img
                   src={flags.png}
                   alt={name.common}
@@ -65,16 +65,16 @@ const Countries = ({ searchTerm, selectedRegion }) => {
                   {name.common}
                 </h2>
 
-                <div className="space-y-1 text-sm  text-gray-900 dark:text-white">
+                <div className="space-y-1 text-sm text-gray-700 dark:text-gray-200">
                   <p>
-                    <span className="font-bold">Population:</span>{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">Population:</span>{" "}
                     {population.toLocaleString()}
                   </p>
                   <p>
-                    <span className="font-bold">Region:</span> {region}
+                    <span className="font-bold text-gray-900 dark:text-white">Region:</span> {region}
                   </p>
                   <p>
-                    <span className="font-bold">Capital:</span>{" "}
+                    <span className="font-bold text-gray-900 dark:text-white">Capital:</span>{" "}
                     {capital?.[0] || "N/A"}
                   </p>
                 </div>
@@ -83,14 +83,14 @@ const Countries = ({ searchTerm, selectedRegion }) => {
               <div className="flex justify-between items-center px-6 pb-6">
                 <Link
                   to={`/countries/${encodeURIComponent(name.common)}`}
-                  className="text-blue-500 font-semibold hover:underline"
+                  className="text-blue-500 dark:text-blue-400 font-semibold hover:underline"
                 >
                   Learn more
                 </Link>
 
                 <button
                   onClick={() => removeCountry(cca3)}
-                  className="text-red-500 font-semibold hover:underline"
+                  className="text-red-500 dark:text-red-400 font-semibold hover:underline"
                 >
                   Remove
                 </button>
